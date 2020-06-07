@@ -1,5 +1,3 @@
-Read full, maintained and up to date version on GitHub.
-
 # What's the reason to drop YAML support from integration
 
 In the post [The future of YAML](https://community.home-assistant.io/t/the-future-of-yaml/186879), Home-Assistant team explains the decision of [ADR0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md).
