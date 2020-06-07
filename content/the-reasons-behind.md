@@ -311,7 +311,7 @@ async def async_setup_platform(
 
 This is much simpler logic that the one that was added for the migration across versions. Additionally, this only needs to be updated if there ever are changes in schema.
 
-> TODO(nitobuendia): add further explanation on how this could be solved by Home-Assistant team.
+To read and discuss further about potential solutions you can read this article on [what would imply adding YAML support](https://github.com/nitobuendia/yaml-custom-components/blob/master/content/how-to-add-yaml-support.md).
 
 ### Respecting contributors time
 
