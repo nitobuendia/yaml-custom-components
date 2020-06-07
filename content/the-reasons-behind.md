@@ -12,6 +12,8 @@ Some of the decisions to make this decision are:
 
 *If you do not want to read the whole thing, jump to the conclusions; and only read the sections where you do not agree.*
 
+---
+
 ## Making thing easier
 > "Making things easier" by "enabling and empowering people with managing their Home Assistant instance via the user interface".
 
@@ -22,6 +24,8 @@ Making UI first is a great decision for Home-Assistant. However, making UI only 
 > TODO(nitobuendia): add article on "broken user flows" article.
 
 As such, it is not true that this makes things easier; it also makes things harder for many users and use cases. Some of which also happen to be contributing to the ecosystem of components or add-ons.
+
+---
 
 ## Breaking changes
 
@@ -129,6 +133,8 @@ The data in `config_entries = hass.config_entries` and `data = entry.data` are s
 
 As such, while this is a great improvement, it is not an improvement that is exclusive to the new UI methodology, but something that can easily be ported to YAML configuration as well.
 
+---
+
 ## Privacy and Security
 
 One of the claims to make the new changes is privacy and security. Home-Assistant has access to many APIs that can affect your home, life and expose your personal information.
@@ -185,6 +191,8 @@ Now, this is a good idea. Separating PII and sensitive details like usernames an
 And yes, of course, this requires UI, no one said the opposite; but the basic configuration still remains in YAML and can be used anywhere.
 
 As such, this point is about improving the onboarding OAuth process, not about whether data should be stored in JSON under `.storage` or YAML. The approach of having the configuration in YAML and storing sensitive data in private files. Even better if we start encrypting and protecting this data rather than just hiding it and hoping to get [security through obscurity](https://en.wikipedia.org/wiki/Security_through_obscurity).
+
+---
 
 ## A big maintenance cost
 One of the main reasons is that doing all that was said before and maintaining a dual system would yield high maintenance cost for the contributors.
@@ -326,6 +334,8 @@ In other words, if you are contributor who wants to dedicate your "spare time" t
 If adding YAML support is really costly and troublesome (which we already explained that it doesn't need to be), then let's make it optional. Contributors are not required to implement it. However, if a contributor is willing to spend their spare time, let's allow and encourage them to do it as it creates values for the users.
 
 As such, if we really care about users and contributors, we should encourage contributors to create value; not discourage them from contributing.
+
+---
 
 ## Conclusions
 
