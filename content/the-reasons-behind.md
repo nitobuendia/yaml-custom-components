@@ -1,6 +1,6 @@
 # What's the reason to drop YAML support from integration
 
-In the post [The future of YAML](https://community.home-assistant.io/t/the-future-of-yaml/186879), Home-Assistant team explains the decision of [ADR0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md).
+In the post [The future of YAML](https://community.home-assistant.io/t/the-future-of-yaml/186879), Home-Assistant team explains the decision of [ADR0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md) to drop YAML support for integrations.
 
 This decision effectively makes support for YAML on Integrations maintenance mode only:
 
