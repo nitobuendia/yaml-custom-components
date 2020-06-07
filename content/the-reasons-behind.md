@@ -19,9 +19,15 @@ Some of the decisions to make this decision are:
 
 It is undoubtedly true that using UI is much easier for most basic cases, non-Tech savvy people and the ones who prefer convenience; all of which are reasons mentioned in the article.
 
-Making UI first is a great decision for Home-Assistant. However, making UI only is a problem as it breaks a few user flows.
+Making UI first is a great decision for Home-Assistant. However, making UI only is a problem as it breaks a few user flows. If you want a full list, you can [read this article](https://github.com/nitobuendia/yaml-custom-components/blob/master/content/how-to-add-yaml-support.md), but highlighting some:
 
-> TODO(nitobuendia): add article on "broken user flows" article.
+1. All current configurations will eventually break.
+1. No easy bulk addition or support.
+1. No partial versioning of components.
+1. No flexible backups and restoring.
+1. Reduced shareability for integrations and related entities.
+1. Increased difficulty in troubleshooting.
+1. Reduced documentation for users and developers.
 
 As such, it is not true that this makes things easier; it also makes things harder for many users and use cases. Some of which also happen to be contributing to the ecosystem of components or add-ons.
 
