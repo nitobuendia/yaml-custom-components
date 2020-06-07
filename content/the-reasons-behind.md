@@ -231,10 +231,14 @@ YAML is just a structured language. This is currently being replaced with JSON f
 
 Example:
 
+**YAML**
+
 ```yaml
 host: 127.0.0.1
 name: Device
 ```
+
+**JSON**
 
 ```json
 {
@@ -243,6 +247,7 @@ name: Device
 }
 ```
 
+**Python**
 ```python
 {
   'host': '127.0.0.1',
