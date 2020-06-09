@@ -49,7 +49,7 @@ Users affected: [27](https://community.home-assistant.io/t/the-future-of-yaml/18
 
 ## (Partial) Versioning
 
-**With UI configuration only**, it becomes harder to create "dated" versions of configurations. If I change the settings of one component to experiment, and I want to revert them one week later to the status one week before, there is no way for me to do it. The options are restoring a full back up (which may be reverting more changes that I want to keep), annotating screenshots, having my own means of documenting them (i.e. my own useless configuration file), or reading the `.storage` files and manually trying to understand the undocumented configuration files. In other words, there is no easy way to import partial past configurations (i.e. one or two components only). Even for the elements that are still shareable (like automations or template sensors), they lose a lot of context when you are not aware of the integrations implemented (e.g. that binary sensor, what is it tracking?).
+**With UI configuration only**, it becomes harder to create "dated" versions of configurations. If I change the settings of one component to experiment, and I want to revert them one week later to the status one week before, there is no way for me to do it. The options are restoring a full back up (which may be reverting more changes that I want to keep), annotating screenshots, having my own means of documenting them (i.e. my own useless configuration file), or reading the `.storage` files and manually trying to understand the undocumented configuration files. In other words, there is no easy way to import partial past configurations (i.e. one or two components only).
 
 **With YAML configuration**, all the versions are kept in track if you use a software like Google Drive or GitHub, you can see the history of changes and you can easily import the state to any of those versions.
 
@@ -101,7 +101,7 @@ Users affected: [72](https://community.home-assistant.io/t/the-future-of-yaml/18
 
 A lot of us learnt and started using Home-Assistant by learning from the configurations of others. This is not only from automations, but also about the key integrations and how they are used.
 
-**With UI configuration only**, the *integrations* are no longer shareable as part of your configurations. The JSON files contain sensitive data (like tokens or passwords), which cannot be removed automatically using systems like `secrets`. As such, only manually edited and cherry picked files can be shared. As a result, the sharing ecosystem will progressively weaken.
+**With UI configuration only**, the *integrations* are no longer shareable as part of your configurations. The JSON files contain sensitive data (like tokens or passwords), which cannot be removed automatically using systems like `secrets`. As such, only manually edited and cherry picked files can be shared. As a result, the sharing ecosystem will progressively weaken. Even for the elements that are still shareable (like automations or template sensors), they lose a lot of context when you are not aware of the integrations implemented (e.g. that binary sensor, what is it tracking?).
 
 **With YAML configuration**, one can share their configurations easily for others to learn and get inspired. Using secrets allow to make this secure without manual intervention.
 
