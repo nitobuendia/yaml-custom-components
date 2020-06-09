@@ -674,10 +674,10 @@ It was also clear in the past that YAML was not going away at all, now it's goin
 
 ## Conclusions
 
-1. Adding YAML support can be done by redirecting calls from `async_setup_platform` to `async_setup_entry` without having to maintain two flows.
-1. This can be optional; but encouraged. UI should be a must and first; but YAML support should not be prohibited or discouraged.
+1. Adding YAML support can be done by redirecting calls from `async_setup_platform` to `async_setup_entry` without having to maintain two flows; therefore, not increasing maintenance cost.
+1. UI should be a must and first, YAML support can be secondary and optional. However, YAML support should not be prohibited or discouraged.
 1. Breakages for those who opt in for YAML instead of UI are expected; similar to what happens when you use Lovelace dashboards.
-1. If this was a first class scenario, for better experience:
+1. If, and only if, we wanted to provide a better YAML experience (at, here yes, greater maintenance cost):
 
     1. The existing UI flows also work to get the data for YAML configuration, providing the best of both experiences.
     1. The same migration code that is used today for the UI flows can be used for transforming the YAML contents with minimal changes.
