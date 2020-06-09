@@ -123,8 +123,6 @@ It is possible for users to have several versions of Home-Assistant at points of
 
 **With YAML configuration**, you can easily copy/paste all or parts of the configuration and install; allowing you to start fresh installations.
 
----
-
 ### Partial Breakages
 
 Configuration entries is not the only way a component can fail. There can be bugs or conflicting modules that may not make your system to work.
@@ -134,8 +132,6 @@ For example, some components temporarily failed ([example nmap](https://github.c
 **With UI configuration only**, there is no way to isolate components temporarily. Moreover, if the UI is broken, there is no way to disable or remove components. You are stuck with a broken system. In other words, if the system is crashing due to a bug, there is no way to access the UI to disable or remove the component and JSON files do not allow an easy way to do it. There's not a good way to recover from this mode.
 
 **With YAML configuration**, you have control over which components to copy and isolate. You can also comment out components even without access to the UI, which allows you to test hypothesis, iterate and recover the system from failure.
-
----
 
 ### Troubleshooting
 
