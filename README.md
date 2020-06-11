@@ -23,7 +23,7 @@ This folder contains arguments in favour of YAML Configuration support and in th
 
 ### Experiments: Showcase of Solutions and Alternatives
 
-Folder: [experiments/](experiments/) (WIP)
+Folder: experiments/ (WIP)
 
 This folder contains experiments that aim at finding a solution to the YAML problem. This is not code that should be implemented on your Home-Assistant, but rather showcases of fixes that would allow Home-Assistant to provide YAML support with minimal cost.
 
@@ -39,4 +39,4 @@ As a developer, you can foster and solve this problem for many users. As a user,
 
 Feel free to contribute by improving the article, creating or improving custom components or creating solutions / experiments to the YAML problem. You can also suggest your ideas and improvements on the `Issues` section.
 
-If this work represents you, you can also support our voice on the Community, official GitHub repositories or on the Sponsor link above.
+If this work represents you, you can also support our voice on the Community, official GitHub repositories or on the `Sponsor` link above.
