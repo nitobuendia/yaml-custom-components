@@ -13,13 +13,7 @@
       },
       "confirmation": {
         "title": "Confirm Configuration",
-        "description": "This is the data configuration that will be set up.",
-        "data": {
-          "title": "Title",
-          "host": "host",
-          "username": "username",
-          "allow_hue_groups": "allow_hue_groups"
-        }
+        "description": "Your device configuration is ready. \n\nIf you prefer to set up the device manually, use this code on your `configuration.yaml`:\n\n```yaml\n{yaml}```\n\nIf you prefer to set it up via UI, simply click submit below."
       }
     },
     "error": {

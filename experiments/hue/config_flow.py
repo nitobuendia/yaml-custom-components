@@ -26,6 +26,10 @@ class CustomHueFlowHandler(config_flow.HueFlowHandler):
   of the process.
   """
 
+  def __init__(self):
+    """Sets up the UI configuration handler."""
+    self._set_up_data = None
+
   # Original async_step_link, but adding one extra step to confirm device.
   async def async_step_link(self, user_input=None):
     """Attempt to link with the Hue bridge.
@@ -56,17 +60,30 @@ class CustomHueFlowHandler(config_flow.HueFlowHandler):
       username = bridge.username
       allow_hue_groups = False
 
-      data_schema = voluptuous.Schema({
-          voluptuous.Required("title", default=title): str,
-          voluptuous.Required("host", default=host): str,
-          voluptuous.Required("username", default=username): str,
-          voluptuous.Required(
-              "allow_hue_groups", default=allow_hue_groups): str,
-      })
+      self._set_up_data = {
+          'title': title,
+          'data': {
+              'host': host,
+              'username': username,
+              'allow_hue_groups': allow_hue_groups,
+          }
+      }
+
+      yaml_data = {
+          'hue': {
+              'bridges': [{
+                  'host': host,
+                  'allow_hue_groups': allow_hue_groups,
+              }]
+          }
+      }
+      yaml_configuration = yaml.dump(yaml_data)
 
       return self.async_show_form(
           step_id="confirmation",
-          data_schema=data_schema,
+          description_placeholders={
+              'yaml': yaml_configuration,
+          }
       )
 
     # Pre-existing error logic.
@@ -89,14 +106,10 @@ class CustomHueFlowHandler(config_flow.HueFlowHandler):
   # Changes to hue/config_flow.py.
   async def async_step_confirmation(self, user_input=None):
     """Creates device entries after confirmation."""
-    config_title = user_input.get('title')
-    config_data = {
-        'host': user_input.get('host'),
-        'username': user_input.get('username'),
-        'allow_hue_groups': user_input.get('allow_hue_groups')
-    }
+    if not self._set_up_data:
+      raise ValueError('Configuration flow failed.')
 
     return self.async_create_entry(
-        title=config_title,
-        data=config_data,
+        title=self._set_up_data.get('title'),
+        data=self._set_up_data.get('data'),
     )
