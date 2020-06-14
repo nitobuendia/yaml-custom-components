@@ -29,6 +29,8 @@ This folder contains experiments that aim at finding a solution to the YAML prob
 
 * [PS4](experiments/ps4/): first and minimal custom component that explains how to minimize cost of maintaining YAML by simply providing an Adapter that changes the data structure and delegates the implementation of the devices from `async_setup_platform` to `async_setup_entry`.
 
+* [Hue](experiments/hue/): custom component that showcases how the UI workflow could be used to generate both YAML configuration and the UI configuration. This flow allows YAML power users to have the last word and easily copy/paste YAML into the files. The objective is to have a self-documenting UI to reduce the cost of maintenance for component owners, while providing full functionality to all users.
+
 ### Custom Components: Core Components with YAML Support
 
 Folder: [custom_components/](custom_components/)
