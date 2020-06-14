@@ -1,0 +1,7 @@
+{
+  "domain": "ps4",
+  "name": "Sony PlayStation 4",
+  "documentation": "https://www.home-assistant.io/integrations/ps4",
+  "requirements": [],
+  "codeowners": ["@nitobuendia"]
+}
