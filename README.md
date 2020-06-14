@@ -23,9 +23,11 @@ This folder contains arguments in favour of YAML Configuration support and in th
 
 ### Experiments: Showcase of Solutions and Alternatives
 
-Folder: experiments/ (WIP)
+Folder: [experiments/](experiments/)
 
 This folder contains experiments that aim at finding a solution to the YAML problem. This is not code that should be implemented on your Home-Assistant, but rather showcases of fixes that would allow Home-Assistant to provide YAML support with minimal cost.
+
+* [PS4](experiments/ps4/): first and minimal custom component that explains how to minimize cost of maintaining YAML by simply providing an Adapter that changes the data structure and delegates the implementation of the devices from `async_setup_platform` to `async_setup_entry`.
 
 ### Custom Components: Core Components with YAML Support
 
