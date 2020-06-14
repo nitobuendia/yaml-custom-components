@@ -129,6 +129,10 @@ As a new step is created, you need to also add some translations to show the mes
 }
 ```
 
+### Summary
+
+While the boilerplate may seem long, by sharing the same configuration structure between YAML and UI, this would only require to make one `self.async_create_entry()` with a yaml processed details of the device to really make it work. This should not require more than 5-10 lines of code (including English strings) and provide great functionality.
+
 ### Result
 
 This will show the following message in the UI:
@@ -137,6 +141,103 @@ This will show the following message in the UI:
 
 The user can copy the code into `configuration.yaml` or simply press submit to complete the UI setup.
 
+---
+
+## Alternative implementations
+
+This implementation may not look friendly for UI-only users. There are a few ways to improve this.
+
+### Optional YAML configuration
+
+One option is to only showcase the YAML configuration to those who are YAML configuration. This could be a user flag that allows us to know if it's an advanced user or not. This is similar to enabling/disabling lovelace dashboards or showing the `Developer Tools`.
+
+The code will be something like this:
+
+```python
+if is_advanced_user:
+  return self.async_show_form(
+      step_id="confirmation",
+      description_placeholders={
+          'yaml': yaml_configuration,
+      }
+  )
+else:
+  return self.async_step_confirmation()
+```
+
+### Make configuration editable
+
+Another option is to additionally show the configuration data to the user, so they can Edit it. This is not a replacement for YAML configuration, but a way to make this confirmation box also users by UI-only users.
+
+This would require defining the form data via a Schema:
+
+```python
+  data_schema = voluptuous.Schema({
+      voluptuous.Required("title", default=title): str,
+      voluptuous.Required("host", default=host): str,
+      voluptuous.Required("username", default=username): str,
+      voluptuous.Required(
+          "allow_hue_groups", default=allow_hue_groups): str,
+  })
+```
+
+Additionally, the form call would change slightly:
+
+```python
+return self.async_show_form(
+          step_id="confirmation",
+          data_schema=data_schema,
+)
+```
+
+As the form has changed, the translation text would also be different:
+
+```json
+  "confirmation": {
+    "title": "Confirm Configuration",
+    "description": "This is the data configuration that will be set up.",
+    "data": {
+      "title": "Title",
+      "host": "host",
+      "username": "username",
+      "allow_hue_groups": "allow_hue_groups"
+    }
+  }
+```
+
+The form data could be gathered by the confirmation step from the `user_input` instead.
+
+```python
+  async def async_step_confirmation(self, user_input=None):
+    """Creates device entries after confirmation."""
+    config_title = user_input.get('title')
+    config_data = {
+        'host': user_input.get('host'),
+        'username': user_input.get('username'),
+        'allow_hue_groups': user_input.get('allow_hue_groups')
+    }
+
+    return self.async_create_entry(
+        title=config_title,
+        data=config_data,
+        title=self._set_up_data.get('title'),
+        data=self._set_up_data.get('data'),
+    )
+```
+
+At the end, this would show like this:
+
+![Form with all details from UI configuration for hue component](.github/hue_confirmation.png)
+
+The form data could also be combined with the one from YAML configuration to offer the best of both worlds.
+
+Overall, this alternative implementation empowers users to confirm the configuration before creating devices, and can be a good step to also provide the data needed for YAML configuration in a more user-friendly way. The extra schema seems to add to the cost (despite being exactly the one required to be stored), and as such, we have opted for a more lightweight option for the main proposal.
+
+### Centralized confirmation on core code
+
+This code was implemented by a `custom_component` and, as such, it has focused in modifying a core component to add this additional step. However, a more efficient way to implement this would be by implementing this natively on `self.async_create_entry` under [core/data_entry_flow.py](https://github.com/home-assistant/core/blob/e969d364e67a40020fe103bee59fef461f597bbe/homeassistant/data_entry_flow.py#L292). Any data received to create a new entry will be shown to the user in a form who would need to submit before creating the entry. This works best when the configuration is optional and only shown for advanced users.
+
+This effectively would have no cost for the components developers.
 
 ---
 
