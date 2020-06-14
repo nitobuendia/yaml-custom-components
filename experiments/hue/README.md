@@ -129,6 +129,15 @@ As a new step is created, you need to also add some translations to show the mes
 }
 ```
 
+### Result
+
+This will show the following message in the UI:
+
+![Form with YAML configuration for hue component](.github/hue_configuration_yaml.png)
+
+The user can copy the code into `configuration.yaml` or simply press submit to complete the UI setup.
+
+
 ---
 
 ## Conclusions
