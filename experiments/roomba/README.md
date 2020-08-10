@@ -20,9 +20,16 @@ The first task is to find the most recent version where YAML was still supported
 
 If UI is the main configuration, there will be a file called "[config_flow.py](https://github.com/home-assistant/core/blob/dev/homeassistant/components/roomba/config_flow.py)", click it and navigate to [History](https://github.com/home-assistant/core/commits/dev/homeassistant/components/roomba/config_flow.py) on top right.
 
+![History option in config_flow.py file](.img/config_flow_history.png)
+
 Scroll all the way down and check the date of the first commit. If there are many changes, you many need to click "Older" a few times. In this case, it's `April 11, 2020` and the commit is `Add config_flow for Roomba (#33302)`. This is the commit where `config_flow.py` (UI) was created. We probably want to revert to the version exactly before this one.
 
+![List of commits in config_flow.py](.img/config_flow_commits.png)
+
 Within that view, click now on the name of the platform folder, to go to the [History page for the whole component](https://github.com/home-assistant/core/commits/dev/homeassistant/components/roomba). Your objective now is to find the commit before where `config_flow.py` was added. Again, you may need to click "Older" a few times. Memorizing the date before will help you in doing this faster.
+
+![Commit in config_flow.py before YAML changes](.img/config_flow_target_commit.png)
+
 
 In this case, we want to revert the component to "Add prettier (in pre-commit and CI) (#33693)". The last version before UI was added.
 
@@ -47,6 +54,8 @@ Once done, copy the platform folder (e.g. `homeassistant/components/roomba`). Se
 If you are not familiar with git or do not want to clone the repository, there's also a manual way:
 
 Once you have identified the version you want, click the button `[<>]` to revert the view to that commit/point in history.
+
+![Commit in config_flow.py before YAML changes](.img/commit_revert_history.png)
 
 Once you click it, you will be back to the main `home-assistant/core` folder, but with a key difference. Now, you will be in the view of the repository in the point of history where you selected.
 
@@ -73,6 +82,8 @@ You have just downgraded your component to an older version. It is possible that
 The documentation for the components lives within a different component called `home-assistant/home-assistant.io`. [Access it](https://github.com/home-assistant/home-assistant.io) and navigate to [source/_integrations/](https://github.com/home-assistant/home-assistant.io/tree/current/source/_integrations) and click the file with the platform name you want (e.g. roomba.md).
 
 What you are seeing is the current configuration of the component. What we want now is to revert to the point in history where we downgraded our component. For this, we will go again to History and find the change before our `config_flow.py` was added. In our case, it was April 11. Click on `[<>]` button, to revert the component to that point in history.
+
+![Commit in home-assistant.io before YAML configuration changes](.img/config_history_commit.png)
 
 Once again, you will be taken to the root directory. Navigate again to [source/_integrations](https://github.com/home-assistant/home-assistant.io/tree/d197c65a62382b2a7969ce012154864ad020ccb6/source/_integrations) and open the platform.md file that you want.
 
