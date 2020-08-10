@@ -27,6 +27,8 @@ Folder: [experiments/](experiments/)
 
 This folder contains experiments that aim at finding a solution to the YAML problem. This is not code that should be implemented on your Home-Assistant, but rather showcases of fixes that would allow Home-Assistant to provide YAML support with minimal cost.
 
+* [Roomba](experiments/roomba/): downgraded version of Roomba core component with full explanations on how you can revert any component to its YAML version using `custom_components`.
+
 * [PS4](experiments/ps4/): first and minimal custom component that explains how to minimize cost of maintaining YAML by simply providing an Adapter that changes the data structure and delegates the implementation of the devices from `async_setup_platform` to `async_setup_entry`.
 
 * [Hue](experiments/hue/): custom component that showcases how the UI workflow could be used to generate both YAML configuration and the UI configuration. This flow allows YAML power users to have the last word and easily copy/paste YAML into the files. The objective is to have a self-documenting UI to reduce the cost of maintenance for component owners, while providing full functionality to all users.
