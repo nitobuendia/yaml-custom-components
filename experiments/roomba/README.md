@@ -38,7 +38,7 @@ In this case, we want to revert the component to "Add prettier (in pre-commit an
 #### Via Command Line
 If you are familiar with git (GitHub), you can clone the repository at that version ([example](https://github.com/home-assistant/core/issues/35499#issuecomment-628559807)):
 
-```
+```sh
 git clone https://github.com/home-assistant/core.git
 cd core
 git checkout 39336d3ea367e5c50e88fa09165257290a07b150
@@ -93,7 +93,7 @@ TIP: Click in RAW to read it clearly.
 
 For example, in the case of `roomba`, I had to change from:
 
-```
+```yaml
 # Example configuration.yaml entry
 roomba:
   - host: IP_ADDRESS_OR_HOSTNAME
